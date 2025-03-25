@@ -1,0 +1,67 @@
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-color: #f4f4f4;
+      }
+      .container {
+          display: flex;
+          flex-direction: column; /* Cambiado a columna para que la imagen esté arriba */
+          align-items: flex-start; /* Alineación a la izquierda */
+          padding: 10px;
+      }
+      .logo {
+          width: 100%;
+          max-width: 160px;
+          height: auto;
+          margin-bottom: 10px; /* Espacio entre el logo y el texto */
+      }
+      .p-text-one {
+          font-size: 13px;
+          color: #3d3d3d;
+          font-weight: bold;
+          text-align: left; /* Alineación a la izquierda */
+          margin-top: -10px; /* Sin margen superior */
+          line-height: 2;
+      }
+      .p-text-message {
+          font-size: 13px;
+          color: #3f3f3f;
+          line-height: 2;
+          margin: 10px 0;
+      }
+
+      .p-text-message-final {
+          font-size: 14px;
+          color: #3f3f3f;
+          line-height: 2;
+          margin: 10px 0;
+          margin-top: -15px;
+      }
+
+   
+
+      .content {
+          margin-top: -20px;
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+      }
+      .copyright-one {
+          color: red; /* Color rojo para el texto */
+          font-size: 13px;
+          text-align: left; /* Alineación a la izquierda */
+          margin-top: 10px;
+      }
+      .copyright-two {
+          color: red; /* Color rojo para el texto */
+          font-size: 13px;
+          text-align: left; /* Alineación a la izquierda */
+          margin-top: -5px;
+      }
+      @media (max-width: 600px) {
+          .p-text-one, .p-text-message, .p-text-message-final, .copyright-one, .copyright-two {
+              font-size: 13px; /* Mantener 13px en móviles */
+              text-align: left; /* Alineación a la izquierda en móviles */
+          }
+      }
